@@ -32,7 +32,7 @@ Você deve desenvolver um sistema para gerenciar o portfólio de projetos de uma
 • Quantidade de projetos por status
 • Total orçado por status
 • Média de duração dos projetos encerrados
-•  Total de membros únicos alocados
+• Total de membros únicos alocados
 
 🧱 Regras de Implementação
 • Utilizar arquitetura MVC

@@ -4,6 +4,7 @@ import com.herbertduarte.gestorprojetos.dtos.projeto.CreateProjetoDto;
 import com.herbertduarte.gestorprojetos.dtos.projeto.ProjetoDto;
 import com.herbertduarte.gestorprojetos.dtos.projeto.UpdateProjetoDto;
 import com.herbertduarte.gestorprojetos.services.ProjetoService;
+import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -36,13 +37,15 @@ public class ProjetoController {
     }
 
     @PostMapping()
-    public ResponseEntity<Void> createProjeto(CreateProjetoDto payload){
+    public ResponseEntity<Void> createProjeto(@RequestBody @Valid CreateProjetoDto payload){
         projetoService.createProjeto(payload);
         return ResponseEntity.ok().build();
     }
 
     @PutMapping("/{projetoId}")
-    public ResponseEntity<Void> updateProjeto(@PathVariable Integer projetoId, UpdateProjetoDto payload){
+    public ResponseEntity<Void> updateProjeto(
+            @PathVariable Integer projetoId,
+            @RequestBody @Valid UpdateProjetoDto payload){
         projetoService.atualizarProjeto(projetoId, payload);
         return ResponseEntity.ok().build();
     }
@@ -51,5 +54,11 @@ public class ProjetoController {
     public ResponseEntity<Void> deleteProjeto(@PathVariable Integer projetoId){
         projetoService.excluirProjeto(projetoId);
         return ResponseEntity.ok().build();
+    }
+
+    @PatchMapping("/{projetoId}/avancar-status")
+    public ResponseEntity<ProjetoDto> avancaStatusProjeto(@PathVariable Integer projetoId){
+        ProjetoDto projeto = projetoService.avancaStatusProjeto(projetoId);
+        return ResponseEntity.ok(projeto);
     }
 }

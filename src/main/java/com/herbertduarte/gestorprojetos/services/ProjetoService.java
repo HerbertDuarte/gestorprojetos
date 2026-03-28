@@ -6,15 +6,15 @@ import com.herbertduarte.gestorprojetos.dtos.projeto.UpdateProjetoDto;
 import com.herbertduarte.gestorprojetos.enums.Status;
 import com.herbertduarte.gestorprojetos.exceptions.MembroNaoEncontradoException;
 import com.herbertduarte.gestorprojetos.exceptions.ProjetoNaoEncontradoException;
+import com.herbertduarte.gestorprojetos.exceptions.StatusNaoExcluivelException;
 import com.herbertduarte.gestorprojetos.models.Membro;
 import com.herbertduarte.gestorprojetos.models.Projeto;
 import com.herbertduarte.gestorprojetos.repositories.MembroJpaRepository;
 import com.herbertduarte.gestorprojetos.repositories.ProjetoJpaRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class ProjetoService {
@@ -57,11 +57,7 @@ public class ProjetoService {
     public void atualizarProjeto(Integer projetoId, UpdateProjetoDto payload){
         Projeto projeto = projetoRepository.findById(projetoId).orElseThrow(ProjetoNaoEncontradoException::new);
 
-        projeto.setNome(payload.nome());
-        projeto.setDescricao(payload.descricao());
-        projeto.setDataInicio(payload.dataInicio());
-        projeto.setDataTermino(payload.dataTermino());
-        projeto.setOrcamentoTotal(payload.orcamentoTotal());
+        BeanUtils.copyProperties(payload, projeto);
 
         if(!projeto.getGerente().getId().equals(payload.gerenteId())){
             Membro novoGerente = membroRepository.findById(payload.gerenteId())
@@ -74,12 +70,22 @@ public class ProjetoService {
 
     public void excluirProjeto(Integer id){
         Projeto projeto = projetoRepository.findById(id).orElseThrow(ProjetoNaoEncontradoException::new);
+        if(!projeto.getStatus().excluivel()){
+            throw new StatusNaoExcluivelException();
+        }
         projetoRepository.delete(projeto);
     }
 
     public ProjetoDto avancaStatusProjeto(Integer projetoId){
         Projeto projeto = projetoRepository.findById(projetoId).orElseThrow(ProjetoNaoEncontradoException::new);
         projeto.setStatus(projeto.getStatus().proximo());
+        projetoRepository.save(projeto);
+        return ProjetoDto.from(projeto);
+    }
+
+    public ProjetoDto cancelarProjeto(Integer projetoId){
+        Projeto projeto = projetoRepository.findById(projetoId).orElseThrow(ProjetoNaoEncontradoException::new);
+        projeto.setStatus(Status.CANCELADO);
         projetoRepository.save(projeto);
         return ProjetoDto.from(projeto);
     }
