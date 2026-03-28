@@ -4,8 +4,6 @@
 
 Você deve desenvolver um sistema para gerenciar o portfólio de projetos de uma empresa. Esse sistema deverá permitir o acompanhamento completo do ciclo de vida de cada projeto, desde a análise de viabilidade até a finalização, incluindo gerenciamento de equipe, orçamento e risco.
 
-Não deverá constar em nenhum lugar do projeto (estruturas de pastas, nomes de arquivos, código fonte, etc.) a palavra “Desbravador”.
-• Terá até 5 dias para retorno desse e-mail
 
 📋 Regras de Negócio (ampliadas e mais desafiadoras):
 • O sistema deve permitir CRUD completo de projetos com os seguintes campos:
