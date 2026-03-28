@@ -61,4 +61,10 @@ public class ProjetoController {
         ProjetoDto projeto = projetoService.avancaStatusProjeto(projetoId);
         return ResponseEntity.ok(projeto);
     }
+
+    @PatchMapping("/{projetoId}/cancelar")
+    public ResponseEntity<ProjetoDto> cancelarProjeto(@PathVariable Integer projetoId){
+        ProjetoDto projeto = projetoService.cancelarProjeto(projetoId);
+        return ResponseEntity.ok(projeto);
+    }
 }
