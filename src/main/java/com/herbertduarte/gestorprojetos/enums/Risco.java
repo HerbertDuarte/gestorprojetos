@@ -32,11 +32,11 @@ public enum Risco {
     public static Risco from(Projeto projeto){
         BigDecimal orcamentoTotal = projeto.getOrcamentoTotal();
         long prazoEmMeses = ChronoUnit.MONTHS.between(projeto.getDataInicio(), projeto.getDataTermino());
-        if(orcamentoTotal.intValue() > 500000 && prazoEmMeses > 6){
+        if(orcamentoTotal.intValue() > 500000 || prazoEmMeses > 6){
             return ALTO;
         }
         else if(orcamentoTotal.intValue() > 100000 && orcamentoTotal.intValue() < 500000
-                && prazoEmMeses > 3 && prazoEmMeses < 6){
+                || prazoEmMeses > 3 && prazoEmMeses < 6){
             return MEDIO;
         }
         else if(orcamentoTotal.intValue() <= 100000  && prazoEmMeses <= 3){
