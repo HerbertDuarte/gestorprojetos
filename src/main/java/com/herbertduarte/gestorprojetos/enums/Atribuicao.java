@@ -2,7 +2,7 @@ package com.herbertduarte.gestorprojetos.enums;
 
 public enum Atribuicao {
     FUNCIONARIO(1),
-    GERENTE(2);
+    OUTRO(2);
 
     private final Integer value;
     Atribuicao(Integer value) {

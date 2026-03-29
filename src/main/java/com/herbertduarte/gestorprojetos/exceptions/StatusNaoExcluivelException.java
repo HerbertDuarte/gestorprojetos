@@ -1,11 +1,13 @@
 package com.herbertduarte.gestorprojetos.exceptions;
 
+import org.springframework.http.HttpStatus;
+
 public class StatusNaoExcluivelException extends ApplicationException{
     public StatusNaoExcluivelException(String message) {
-        super(message);
+        super(message, HttpStatus.BAD_REQUEST);
     }
 
     public StatusNaoExcluivelException() {
-        super("Não é possível excluir um projeto nessa fase");
+        this("Não é possível excluir um projeto nessa fase");
     }
 }

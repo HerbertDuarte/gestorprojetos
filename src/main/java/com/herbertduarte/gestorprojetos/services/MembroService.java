@@ -4,6 +4,8 @@ import com.herbertduarte.gestorprojetos.dtos.membro.CreateMembroDto;
 import com.herbertduarte.gestorprojetos.models.Membro;
 import com.herbertduarte.gestorprojetos.enums.Atribuicao;
 import com.herbertduarte.gestorprojetos.repositories.MembroJpaRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,7 +28,7 @@ public class MembroService {
         repository.save(novoMembro);
     }
 
-    public List<Membro> getAllMembros(){
-        return repository.findAll();
+    public Page<Membro> getAllMembros(Pageable pageable, String nome, Atribuicao atribuicao){
+        return repository.findAll(nome, atribuicao, pageable);
     }
 }

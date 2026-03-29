@@ -1,11 +1,13 @@
 package com.herbertduarte.gestorprojetos.exceptions;
 
+import org.springframework.http.HttpStatus;
+
 public class MembroNaoEncontradoException extends ApplicationException{
     public MembroNaoEncontradoException(String message) {
-        super(message);
+        super(message, HttpStatus.NOT_FOUND);
     }
 
     public MembroNaoEncontradoException() {
-        super("Não foi possível encontrar o membro");
+        this("Não foi possível encontrar o membro");
     }
 }

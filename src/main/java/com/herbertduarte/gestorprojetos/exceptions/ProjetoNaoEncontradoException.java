@@ -1,11 +1,13 @@
 package com.herbertduarte.gestorprojetos.exceptions;
 
+import org.springframework.http.HttpStatus;
+
 public class ProjetoNaoEncontradoException extends ApplicationException{
     public ProjetoNaoEncontradoException(String message) {
-        super(message);
+        super(message, HttpStatus.NOT_FOUND);
     }
 
     public ProjetoNaoEncontradoException() {
-        super("Não foi possível encontrar o projeto");
+        this("Não foi possível encontrar o projeto");
     }
 }

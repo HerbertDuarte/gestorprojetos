@@ -70,9 +70,9 @@ public class ProjetoService {
 
     public void excluirProjeto(Integer id){
         Projeto projeto = projetoRepository.findById(id).orElseThrow(ProjetoNaoEncontradoException::new);
-        if(!projeto.getStatus().excluivel()){
+        if(!projeto.getStatus().excluivel())
             throw new StatusNaoExcluivelException();
-        }
+
         projetoRepository.delete(projeto);
     }
 
