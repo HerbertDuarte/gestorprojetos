@@ -1,6 +1,5 @@
 package com.herbertduarte.gestorprojetos.dtos.projeto;
 
-import com.herbertduarte.gestorprojetos.enums.Status;
 import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
