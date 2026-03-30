@@ -2,7 +2,6 @@ package com.herbertduarte.gestorprojetos.models;
 
 import com.herbertduarte.gestorprojetos.enums.Status;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -27,7 +26,6 @@ public class Projeto {
     private LocalDateTime previsaoTermino;
     private LocalDateTime dataTermino;
     @Column(precision = 10, scale = 2, nullable = false)
-    @NotNull
     private BigDecimal orcamentoTotal;
     private String descricao;
     @ManyToOne
