@@ -1,6 +1,5 @@
 [x] exception handling
-[-] spring security config
-    [ ] injetar beans do jwt decoder e do spring security 
+[x] spring security config
 [x] mocked login
 [ ] documentation with swagger
 [ ] tests

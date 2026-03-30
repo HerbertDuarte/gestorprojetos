@@ -26,7 +26,7 @@ public class Projeto {
     @Column(nullable = false)
     private LocalDateTime previsaoTermino;
     private LocalDateTime dataTermino;
-    @Column(columnDefinition = "DECIMAL(19,4) NOT NULL")
+    @Column(precision = 10, scale = 2, nullable = false)
     @NotNull
     private BigDecimal orcamentoTotal;
     private String descricao;

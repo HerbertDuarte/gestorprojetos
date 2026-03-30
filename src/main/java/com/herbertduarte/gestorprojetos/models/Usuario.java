@@ -14,8 +14,8 @@ import lombok.Setter;
 public class Usuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id; // uuid para id do usuário é o mais adequado em questão de segurança
     @Column(unique = true)
     private String username;
     private String password;

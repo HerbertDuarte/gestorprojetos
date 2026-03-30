@@ -4,6 +4,7 @@ import com.herbertduarte.gestorprojetos.dtos.membro.CreateMembroDto;
 import com.herbertduarte.gestorprojetos.enums.Atribuicao;
 import com.herbertduarte.gestorprojetos.models.Membro;
 import com.herbertduarte.gestorprojetos.services.MembroService;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -24,7 +25,7 @@ public class MembroController {
     @GetMapping()
     public ResponseEntity<Page<Membro>> getMembros(
             @PageableDefault(sort = "nome") Pageable pageable,
-            @RequestParam(required = false) String nome,
+            @RequestParam(required = false, defaultValue = "") String nome,
             @RequestParam(required = false) Atribuicao atribuicao){
         Page<Membro> membros = membroService.getAllMembros(pageable, nome, atribuicao);
 

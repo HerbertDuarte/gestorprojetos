@@ -2,12 +2,11 @@ package com.herbertduarte.gestorprojetos.controllers;
 
 
 import com.herbertduarte.gestorprojetos.security.*;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -23,8 +22,8 @@ public class AuthController {
         this.authenticationManager = authenticationManager;
     }
 
-    @GetMapping("login")
-    public ResponseEntity<LoginResponseDto> login(LoginDto payload){
+    @PostMapping("login")
+    public ResponseEntity<LoginResponseDto> login(@RequestBody @Valid LoginDto payload){
         var userNamePassword = new UsernamePasswordAuthenticationToken(payload.username(), payload.password());
         var authentication = authenticationManager.authenticate(userNamePassword);
         UsuarioAutenticado usuarioAutenticado = Optional.of((UsuarioAutenticado) authentication.getPrincipal())
