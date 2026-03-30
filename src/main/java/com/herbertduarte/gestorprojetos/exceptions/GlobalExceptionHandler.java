@@ -1,7 +1,5 @@
-package com.herbertduarte.gestorprojetos.configuration;
+package com.herbertduarte.gestorprojetos.exceptions;
 
-import com.herbertduarte.gestorprojetos.exceptions.ApplicationException;
-import com.herbertduarte.gestorprojetos.dtos.common.ErrorResponseDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

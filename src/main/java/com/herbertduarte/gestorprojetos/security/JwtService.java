@@ -1,5 +1,7 @@
 package com.herbertduarte.gestorprojetos.security;
 
+import com.nimbusds.jose.crypto.impl.HMAC;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.jwt.JwtClaimsSet;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
@@ -7,7 +9,6 @@ import org.springframework.security.oauth2.jwt.JwtEncoderParameters;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
 
 @Service
 public class JwtService {
@@ -18,7 +19,7 @@ public class JwtService {
         this.encoder = encoder;
     }
 
-    public String generateToken(Authentication auth){
+    public String generateToken(UsuarioAutenticado usuario){
         Instant agora = Instant.now();
         long umaHoraEmSegundos = 60 * 60;
         Instant dataExpiracao = agora.plusSeconds(umaHoraEmSegundos);
@@ -26,9 +27,9 @@ public class JwtService {
         var claims = JwtClaimsSet.builder()
                 .issuer("spring-boot-jwt")
                 .issuedAt(dataExpiracao)
-                .subject(auth.getName())
+                .subject(usuario.getUsername())
                 .build();
 
-        return encoder.encode(JwtEncoderParameters.from(claims));
+        return encoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
     }
 }

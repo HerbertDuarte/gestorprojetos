@@ -1,5 +1,6 @@
 package com.herbertduarte.gestorprojetos.security;
 
+import com.herbertduarte.gestorprojetos.models.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.jspecify.annotations.NullMarked;

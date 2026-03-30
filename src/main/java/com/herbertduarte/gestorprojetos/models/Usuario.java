@@ -1,4 +1,4 @@
-package com.herbertduarte.gestorprojetos.security;
+package com.herbertduarte.gestorprojetos.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
