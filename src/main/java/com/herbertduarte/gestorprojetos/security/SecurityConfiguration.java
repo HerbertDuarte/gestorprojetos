@@ -1,6 +1,5 @@
 package com.herbertduarte.gestorprojetos.security;
 
-import com.nimbusds.jose.Algorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
