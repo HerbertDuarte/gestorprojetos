@@ -6,6 +6,7 @@ import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,6 +14,9 @@ import java.util.List;
 
 @Configuration
 public class OpenApiConfiguration {
+
+    @Value("${api.prod.url}")
+    private String prodUrl;
 
     @Bean
     public OpenAPI customOpenAPI() {
@@ -27,11 +31,12 @@ public class OpenApiConfiguration {
                                 .url("https://www.linkedin.com/in/herbert-duarte-8534b71a2")))
                 .servers(List.of(
                         new Server()
-                                .url("http://localhost:8080")
-                                .description("Servidor Local"),
+                                .url(prodUrl)
+                                .description("Servidor de Produção"),
                         new Server()
-                                .url("https://api.example.com")
-                                .description("Servidor de Produção")
+                                .url("http://localhost:8080")
+                                .description("Servidor Local")
+
                 ))
                 .components(new io.swagger.v3.oas.models.Components()
                         .addSecuritySchemes("bearer-jwt",

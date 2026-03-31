@@ -15,6 +15,3 @@
 [ ] tests
 [ ] prod profile config
 [ ] docker
-[ ] terraform + aws
-    [ ] ec2
-    [ ] rds
