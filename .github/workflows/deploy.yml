@@ -4,7 +4,8 @@ on:
     push:
         branches: [main]
 jobs:
-    build:
+
+    build-and-test:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout code
@@ -15,17 +16,21 @@ jobs:
               with:
                 distribution: 'temurin'
                 java-version: '17'
-            - name: Build project
-              run: mvn clean install -DskipTests
+
+            - name: Build & Test
+              run: mvn clean install 
+
             - name: Login Docker Hub
               run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
+
             - name: Build docker image
               run: docker build -t herbertduarte/gestorprojetos .
+
             - name: Push image docker
               run: docker push herbertduarte/gestorprojetos
               
     deploy:
-        needs: build
+        needs: build-and-test
         runs-on: self-hosted
         steps:
             - name: Pull image from docker hub
