@@ -1,8 +1,11 @@
 package com.herbertduarte.gestorprojetos.controllers;
 
 
-import com.herbertduarte.gestorprojetos.exceptions.globals.ErrorResponseDto;
-import com.herbertduarte.gestorprojetos.security.*;
+import com.herbertduarte.gestorprojetos.config.security.*;
+import com.herbertduarte.gestorprojetos.config.exceptions.ErrorResponseDto;
+import com.herbertduarte.gestorprojetos.models.dtos.auth.LoginDto;
+import com.herbertduarte.gestorprojetos.models.dtos.auth.LoginResponseDto;
+import com.herbertduarte.gestorprojetos.exceptions.AcessoNegadoException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;

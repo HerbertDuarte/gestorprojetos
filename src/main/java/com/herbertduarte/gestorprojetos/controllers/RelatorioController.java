@@ -1,7 +1,7 @@
 package com.herbertduarte.gestorprojetos.controllers;
 
-import com.herbertduarte.gestorprojetos.dtos.relatorio.RelatorioDto;
-import com.herbertduarte.gestorprojetos.exceptions.globals.ErrorResponseDto;
+import com.herbertduarte.gestorprojetos.models.dtos.relatorio.RelatorioDto;
+import com.herbertduarte.gestorprojetos.config.exceptions.ErrorResponseDto;
 import com.herbertduarte.gestorprojetos.services.RelatorioService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

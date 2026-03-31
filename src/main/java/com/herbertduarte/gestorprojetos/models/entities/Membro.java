@@ -1,6 +1,6 @@
-package com.herbertduarte.gestorprojetos.models;
+package com.herbertduarte.gestorprojetos.models.entities;
 
-import com.herbertduarte.gestorprojetos.enums.Atribuicao;
+import com.herbertduarte.gestorprojetos.models.enums.Atribuicao;
 import jakarta.persistence.*;
 import lombok.*;
 

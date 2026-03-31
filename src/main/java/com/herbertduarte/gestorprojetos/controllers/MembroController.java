@@ -1,13 +1,12 @@
 package com.herbertduarte.gestorprojetos.controllers;
 
-import com.herbertduarte.gestorprojetos.dtos.membro.CreateMembroDto;
-import com.herbertduarte.gestorprojetos.enums.Atribuicao;
-import com.herbertduarte.gestorprojetos.exceptions.globals.ErrorResponseDto;
-import com.herbertduarte.gestorprojetos.models.Membro;
+import com.herbertduarte.gestorprojetos.models.dtos.membro.CreateMembroDto;
+import com.herbertduarte.gestorprojetos.models.enums.Atribuicao;
+import com.herbertduarte.gestorprojetos.config.exceptions.ErrorResponseDto;
+import com.herbertduarte.gestorprojetos.models.entities.Membro;
 import com.herbertduarte.gestorprojetos.services.MembroService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

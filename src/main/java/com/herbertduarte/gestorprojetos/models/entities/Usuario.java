@@ -1,4 +1,4 @@
-package com.herbertduarte.gestorprojetos.models;
+package com.herbertduarte.gestorprojetos.models.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

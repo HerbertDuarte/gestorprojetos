@@ -1,6 +1,6 @@
-package com.herbertduarte.gestorprojetos.dtos.projetomembro;
+package com.herbertduarte.gestorprojetos.models.dtos.projetomembro;
 
-import com.herbertduarte.gestorprojetos.models.ProjetoMembro;
+import com.herbertduarte.gestorprojetos.models.entities.ProjetoMembro;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

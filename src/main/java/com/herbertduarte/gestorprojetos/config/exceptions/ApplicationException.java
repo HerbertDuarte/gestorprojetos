@@ -1,4 +1,4 @@
-package com.herbertduarte.gestorprojetos.exceptions.globals;
+package com.herbertduarte.gestorprojetos.config.exceptions;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

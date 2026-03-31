@@ -1,4 +1,4 @@
-package com.herbertduarte.gestorprojetos.security;
+package com.herbertduarte.gestorprojetos.config.security;
 
 import org.springframework.security.oauth2.jwt.JwtClaimsSet;
 import org.springframework.security.oauth2.jwt.JwtEncoder;

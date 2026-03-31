@@ -1,4 +1,4 @@
-package com.herbertduarte.gestorprojetos.dtos.projetomembro;
+package com.herbertduarte.gestorprojetos.models.dtos.projetomembro;
 
 import jakarta.validation.constraints.NotNull;
 

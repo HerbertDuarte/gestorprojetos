@@ -1,4 +1,4 @@
-package com.herbertduarte.gestorprojetos.enums;
+package com.herbertduarte.gestorprojetos.models.enums;
 
 //em análise → análise realizada → análise aprovada → iniciado → planejado → em andamento → encerrado
 public enum Status {

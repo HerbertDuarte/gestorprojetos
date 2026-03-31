@@ -1,15 +1,15 @@
 package com.herbertduarte.gestorprojetos.services;
 
-import com.herbertduarte.gestorprojetos.dtos.projeto.ProjetoDto;
-import com.herbertduarte.gestorprojetos.dtos.projetomembro.CreateProjetoMembroDto;
-import com.herbertduarte.gestorprojetos.dtos.projetomembro.ProjetoMembroDto;
+import com.herbertduarte.gestorprojetos.models.dtos.projeto.ProjetoDto;
+import com.herbertduarte.gestorprojetos.models.dtos.projetomembro.CreateProjetoMembroDto;
+import com.herbertduarte.gestorprojetos.models.dtos.projetomembro.ProjetoMembroDto;
 import com.herbertduarte.gestorprojetos.exceptions.AlocacaoProjetoMembroNaoEncontrada;
 import com.herbertduarte.gestorprojetos.exceptions.MembroNaoEncontradoException;
 import com.herbertduarte.gestorprojetos.exceptions.ProjetoNaoEncontradoException;
-import com.herbertduarte.gestorprojetos.models.Membro;
-import com.herbertduarte.gestorprojetos.models.Projeto;
-import com.herbertduarte.gestorprojetos.models.ProjetoMembro;
-import com.herbertduarte.gestorprojetos.models.ProjetoMembroId;
+import com.herbertduarte.gestorprojetos.models.entities.Membro;
+import com.herbertduarte.gestorprojetos.models.entities.Projeto;
+import com.herbertduarte.gestorprojetos.models.entities.ProjetoMembro;
+import com.herbertduarte.gestorprojetos.models.entities.ProjetoMembroId;
 import com.herbertduarte.gestorprojetos.repositories.MembroJpaRepository;
 import com.herbertduarte.gestorprojetos.repositories.ProjetoJpaRepository;
 import com.herbertduarte.gestorprojetos.repositories.ProjetoMembroRepository;

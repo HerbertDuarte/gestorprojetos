@@ -1,4 +1,4 @@
-package com.herbertduarte.gestorprojetos.security;
+package com.herbertduarte.gestorprojetos.config.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;

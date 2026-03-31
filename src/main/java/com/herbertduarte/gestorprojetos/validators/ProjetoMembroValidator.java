@@ -1,10 +1,10 @@
 package com.herbertduarte.gestorprojetos.validators;
 
-import com.herbertduarte.gestorprojetos.enums.Atribuicao;
-import com.herbertduarte.gestorprojetos.enums.Status;
+import com.herbertduarte.gestorprojetos.models.enums.Atribuicao;
+import com.herbertduarte.gestorprojetos.models.enums.Status;
 import com.herbertduarte.gestorprojetos.exceptions.*;
-import com.herbertduarte.gestorprojetos.models.Membro;
-import com.herbertduarte.gestorprojetos.models.Projeto;
+import com.herbertduarte.gestorprojetos.models.entities.Membro;
+import com.herbertduarte.gestorprojetos.models.entities.Projeto;
 import com.herbertduarte.gestorprojetos.repositories.ProjetoMembroRepository;
 import org.springframework.stereotype.Component;
 

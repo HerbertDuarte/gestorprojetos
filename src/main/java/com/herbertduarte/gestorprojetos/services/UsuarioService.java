@@ -1,6 +1,8 @@
-package com.herbertduarte.gestorprojetos.security;
+package com.herbertduarte.gestorprojetos.services;
 
+import com.herbertduarte.gestorprojetos.config.security.UsuarioAutenticado;
 import com.herbertduarte.gestorprojetos.exceptions.UsuarioNaoEncontradoException;
+import com.herbertduarte.gestorprojetos.repositories.IUsuarioRepository;
 import org.jspecify.annotations.NullMarked;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

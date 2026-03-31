@@ -1,6 +1,6 @@
-package com.herbertduarte.gestorprojetos.security;
+package com.herbertduarte.gestorprojetos.repositories;
 
-import com.herbertduarte.gestorprojetos.models.Usuario;
+import com.herbertduarte.gestorprojetos.models.entities.Usuario;
 
 import java.util.Optional;
 

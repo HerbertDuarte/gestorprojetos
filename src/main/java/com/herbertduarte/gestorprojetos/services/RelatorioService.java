@@ -1,18 +1,15 @@
 package com.herbertduarte.gestorprojetos.services;
 
-import com.herbertduarte.gestorprojetos.dtos.relatorio.RelatorioDto;
-import com.herbertduarte.gestorprojetos.enums.Status;
+import com.herbertduarte.gestorprojetos.models.dtos.relatorio.RelatorioDto;
+import com.herbertduarte.gestorprojetos.models.enums.Status;
 import com.herbertduarte.gestorprojetos.helpers.ObjectUtils;
 import com.herbertduarte.gestorprojetos.repositories.ProjetoJpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 @Service
 public class RelatorioService {

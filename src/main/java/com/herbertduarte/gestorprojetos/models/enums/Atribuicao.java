@@ -1,4 +1,4 @@
-package com.herbertduarte.gestorprojetos.enums;
+package com.herbertduarte.gestorprojetos.models.enums;
 
 public enum Atribuicao {
     FUNCIONARIO(0),

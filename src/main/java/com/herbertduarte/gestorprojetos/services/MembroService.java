@@ -1,8 +1,8 @@
 package com.herbertduarte.gestorprojetos.services;
 
-import com.herbertduarte.gestorprojetos.dtos.membro.CreateMembroDto;
-import com.herbertduarte.gestorprojetos.models.Membro;
-import com.herbertduarte.gestorprojetos.enums.Atribuicao;
+import com.herbertduarte.gestorprojetos.models.dtos.membro.CreateMembroDto;
+import com.herbertduarte.gestorprojetos.models.entities.Membro;
+import com.herbertduarte.gestorprojetos.models.enums.Atribuicao;
 import com.herbertduarte.gestorprojetos.repositories.MembroJpaRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

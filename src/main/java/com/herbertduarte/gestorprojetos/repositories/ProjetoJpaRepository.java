@@ -1,12 +1,11 @@
 package com.herbertduarte.gestorprojetos.repositories;
 
-import com.herbertduarte.gestorprojetos.enums.Status;
-import com.herbertduarte.gestorprojetos.models.Projeto;
+import com.herbertduarte.gestorprojetos.models.enums.Status;
+import com.herbertduarte.gestorprojetos.models.entities.Projeto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Repository

@@ -1,7 +1,7 @@
 package com.herbertduarte.gestorprojetos.repositories;
 
-import com.herbertduarte.gestorprojetos.enums.Atribuicao;
-import com.herbertduarte.gestorprojetos.models.Membro;
+import com.herbertduarte.gestorprojetos.models.enums.Atribuicao;
+import com.herbertduarte.gestorprojetos.models.entities.Membro;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

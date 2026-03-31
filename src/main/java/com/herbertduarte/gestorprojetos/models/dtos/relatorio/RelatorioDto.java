@@ -1,6 +1,6 @@
-package com.herbertduarte.gestorprojetos.dtos.relatorio;
+package com.herbertduarte.gestorprojetos.models.dtos.relatorio;
 
-import com.herbertduarte.gestorprojetos.enums.Status;
+import com.herbertduarte.gestorprojetos.models.enums.Status;
 import lombok.*;
 
 import java.math.BigDecimal;

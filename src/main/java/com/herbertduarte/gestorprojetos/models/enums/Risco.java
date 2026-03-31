@@ -1,6 +1,6 @@
-package com.herbertduarte.gestorprojetos.enums;
+package com.herbertduarte.gestorprojetos.models.enums;
 
-import com.herbertduarte.gestorprojetos.models.Projeto;
+import com.herbertduarte.gestorprojetos.models.entities.Projeto;
 
 import java.math.BigDecimal;
 import java.time.temporal.ChronoUnit;

@@ -1,4 +1,4 @@
-package com.herbertduarte.gestorprojetos.security;
+package com.herbertduarte.gestorprojetos.config.security;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

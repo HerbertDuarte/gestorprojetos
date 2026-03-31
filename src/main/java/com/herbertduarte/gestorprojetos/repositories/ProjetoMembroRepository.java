@@ -1,10 +1,10 @@
 package com.herbertduarte.gestorprojetos.repositories;
 
-import com.herbertduarte.gestorprojetos.enums.Status;
-import com.herbertduarte.gestorprojetos.models.Membro;
-import com.herbertduarte.gestorprojetos.models.Projeto;
-import com.herbertduarte.gestorprojetos.models.ProjetoMembro;
-import com.herbertduarte.gestorprojetos.models.ProjetoMembroId;
+import com.herbertduarte.gestorprojetos.models.enums.Status;
+import com.herbertduarte.gestorprojetos.models.entities.Membro;
+import com.herbertduarte.gestorprojetos.models.entities.Projeto;
+import com.herbertduarte.gestorprojetos.models.entities.ProjetoMembro;
+import com.herbertduarte.gestorprojetos.models.entities.ProjetoMembroId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

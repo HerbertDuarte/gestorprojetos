@@ -1,4 +1,4 @@
-package com.herbertduarte.gestorprojetos.security;
+package com.herbertduarte.gestorprojetos.models.dtos.auth;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 

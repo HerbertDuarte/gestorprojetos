@@ -1,6 +1,7 @@
-package com.herbertduarte.gestorprojetos.security;
+package com.herbertduarte.gestorprojetos.config.security;
 
-import com.herbertduarte.gestorprojetos.models.Usuario;
+import com.herbertduarte.gestorprojetos.models.entities.Usuario;
+import com.herbertduarte.gestorprojetos.repositories.IUsuarioRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

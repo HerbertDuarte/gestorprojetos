@@ -1,7 +1,7 @@
-package com.herbertduarte.gestorprojetos.dtos.projeto;
+package com.herbertduarte.gestorprojetos.models.dtos.projeto;
 
-import com.herbertduarte.gestorprojetos.enums.Risco;
-import com.herbertduarte.gestorprojetos.models.Projeto;
+import com.herbertduarte.gestorprojetos.models.enums.Risco;
+import com.herbertduarte.gestorprojetos.models.entities.Projeto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

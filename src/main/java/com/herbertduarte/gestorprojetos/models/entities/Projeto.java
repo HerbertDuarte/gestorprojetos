@@ -1,6 +1,6 @@
-package com.herbertduarte.gestorprojetos.models;
+package com.herbertduarte.gestorprojetos.models.entities;
 
-import com.herbertduarte.gestorprojetos.enums.Status;
+import com.herbertduarte.gestorprojetos.models.enums.Status;
 import jakarta.persistence.*;
 import lombok.*;
 

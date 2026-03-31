@@ -1,15 +1,15 @@
 package com.herbertduarte.gestorprojetos.services;
 
-import com.herbertduarte.gestorprojetos.dtos.projeto.CreateProjetoDto;
-import com.herbertduarte.gestorprojetos.dtos.projeto.ProjetoDto;
-import com.herbertduarte.gestorprojetos.dtos.projeto.UpdateProjetoDto;
-import com.herbertduarte.gestorprojetos.enums.Status;
+import com.herbertduarte.gestorprojetos.models.dtos.projeto.CreateProjetoDto;
+import com.herbertduarte.gestorprojetos.models.dtos.projeto.ProjetoDto;
+import com.herbertduarte.gestorprojetos.models.dtos.projeto.UpdateProjetoDto;
+import com.herbertduarte.gestorprojetos.models.enums.Status;
 import com.herbertduarte.gestorprojetos.exceptions.MembroNaoEncontradoException;
 import com.herbertduarte.gestorprojetos.exceptions.ProjetoNaoEncontradoException;
 import com.herbertduarte.gestorprojetos.exceptions.StatusNaoAvancavelException;
 import com.herbertduarte.gestorprojetos.exceptions.StatusNaoExcluivelException;
-import com.herbertduarte.gestorprojetos.models.Membro;
-import com.herbertduarte.gestorprojetos.models.Projeto;
+import com.herbertduarte.gestorprojetos.models.entities.Membro;
+import com.herbertduarte.gestorprojetos.models.entities.Projeto;
 import com.herbertduarte.gestorprojetos.repositories.MembroJpaRepository;
 import com.herbertduarte.gestorprojetos.repositories.ProjetoJpaRepository;
 import org.springframework.beans.BeanUtils;

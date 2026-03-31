@@ -1,10 +1,10 @@
 package com.herbertduarte.gestorprojetos.controllers;
 
-import com.herbertduarte.gestorprojetos.dtos.projeto.ProjetoDto;
-import com.herbertduarte.gestorprojetos.dtos.projetomembro.CreateProjetoMembroDto;
-import com.herbertduarte.gestorprojetos.dtos.projetomembro.ProjetoMembroDto;
-import com.herbertduarte.gestorprojetos.exceptions.globals.ErrorResponseDto;
-import com.herbertduarte.gestorprojetos.models.Membro;
+import com.herbertduarte.gestorprojetos.models.dtos.projeto.ProjetoDto;
+import com.herbertduarte.gestorprojetos.models.dtos.projetomembro.CreateProjetoMembroDto;
+import com.herbertduarte.gestorprojetos.models.dtos.projetomembro.ProjetoMembroDto;
+import com.herbertduarte.gestorprojetos.config.exceptions.ErrorResponseDto;
+import com.herbertduarte.gestorprojetos.models.entities.Membro;
 import com.herbertduarte.gestorprojetos.services.ProjetoMembroService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
