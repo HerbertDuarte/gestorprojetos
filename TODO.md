@@ -12,6 +12,6 @@
     [x] Total de membros únicos alocados
 
 [x] documentation with swagger
-[ ] tests
+[x] tests
 [x] prod profile config
 [x] docker
