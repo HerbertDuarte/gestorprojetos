@@ -2,7 +2,7 @@ package com.herbertduarte.gestorprojetos.models.enums;
 
 public enum Atribuicao {
     FUNCIONARIO(0),
-    OUTRO(1);
+    OUTRO(1); // não foi especificado no documento de requisitos
 
     private final Integer value;
     Atribuicao(Integer value) {
