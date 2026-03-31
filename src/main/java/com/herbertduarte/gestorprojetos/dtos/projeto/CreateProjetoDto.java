@@ -12,7 +12,7 @@ public record CreateProjetoDto(
         @NotNull
         LocalDateTime dataInicio,
         @NotNull
-        LocalDateTime dataTermino,
+        LocalDateTime previsaoTermino,
         @NotNull
         BigDecimal orcamentoTotal,
         String descricao,

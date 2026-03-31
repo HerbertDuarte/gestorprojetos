@@ -1,6 +1,7 @@
 package com.herbertduarte.gestorprojetos.models;
 
 import com.herbertduarte.gestorprojetos.enums.Status;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,7 +17,8 @@ import java.util.List;
 @Entity
 public class Projeto {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "projeto_seq")
+    @SequenceGenerator(name = "projeto_seq", sequenceName = "projeto_seq", allocationSize = 1)
     private Integer id;
     @Column(nullable = false)
     private String nome;

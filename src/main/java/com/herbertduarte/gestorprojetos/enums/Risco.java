@@ -31,7 +31,7 @@ public enum Risco {
     //• Alto risco: orçamento acima de R$ 500.000 ou prazo superior a 6 meses
     public static Risco from(Projeto projeto){
         BigDecimal orcamentoTotal = projeto.getOrcamentoTotal();
-        long prazoEmMeses = ChronoUnit.MONTHS.between(projeto.getDataInicio(), projeto.getDataTermino());
+        long prazoEmMeses = ChronoUnit.MONTHS.between(projeto.getDataInicio(), projeto.getPrevisaoTermino());
         if(orcamentoTotal.intValue() > 500000 || prazoEmMeses > 6){
             return ALTO;
         }

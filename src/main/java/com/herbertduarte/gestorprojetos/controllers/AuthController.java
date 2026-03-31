@@ -1,9 +1,11 @@
 package com.herbertduarte.gestorprojetos.controllers;
 
 
+import com.herbertduarte.gestorprojetos.exceptions.globals.ErrorResponseDto;
 import com.herbertduarte.gestorprojetos.security.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -34,9 +36,12 @@ public class AuthController {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Autenticação bem-sucedida", 
                     content = @Content(schema = @Schema(implementation = LoginResponseDto.class))),
-            @ApiResponse(responseCode = "400", description = "Requisição inválida"),
-            @ApiResponse(responseCode = "401", description = "Credenciais inválidas"),
-            @ApiResponse(responseCode = "403", description = "Acesso negado")
+            @ApiResponse(responseCode = "403", description = "Acesso Negado",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class),
+                            examples = @ExampleObject(value = AcessoNegadoException.example)
+                    )
+            )
     })
     public ResponseEntity<LoginResponseDto> login(@RequestBody @Valid LoginDto payload){
         var userNamePassword = new UsernamePasswordAuthenticationToken(payload.username(), payload.password());

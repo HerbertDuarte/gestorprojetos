@@ -6,6 +6,7 @@ import com.herbertduarte.gestorprojetos.dtos.projeto.UpdateProjetoDto;
 import com.herbertduarte.gestorprojetos.enums.Status;
 import com.herbertduarte.gestorprojetos.exceptions.MembroNaoEncontradoException;
 import com.herbertduarte.gestorprojetos.exceptions.ProjetoNaoEncontradoException;
+import com.herbertduarte.gestorprojetos.exceptions.StatusNaoAvancavelException;
 import com.herbertduarte.gestorprojetos.exceptions.StatusNaoExcluivelException;
 import com.herbertduarte.gestorprojetos.models.Membro;
 import com.herbertduarte.gestorprojetos.models.Projeto;
@@ -15,6 +16,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 
 @Service
 public class ProjetoService {
@@ -41,7 +44,7 @@ public class ProjetoService {
                 .nome(payload.nome())
                 .descricao(payload.descricao())
                 .dataInicio(payload.dataInicio())
-                .dataTermino(payload.dataTermino())
+                .previsaoTermino(payload.previsaoTermino())
                 .gerente(gerente)
                 .status(Status.EM_ANALISE)
                 .orcamentoTotal(payload.orcamentoTotal())
@@ -78,7 +81,15 @@ public class ProjetoService {
 
     public ProjetoDto avancaStatusProjeto(Integer projetoId){
         Projeto projeto = projetoRepository.findById(projetoId).orElseThrow(ProjetoNaoEncontradoException::new);
+        if(projeto.getStatus().proximo() == null){
+            throw new StatusNaoAvancavelException();
+        }
+
         projeto.setStatus(projeto.getStatus().proximo());
+
+        if(projeto.getStatus() == Status.ENCERRADO){
+            projeto.setDataTermino(LocalDateTime.now());
+        }
         projetoRepository.save(projeto);
         return ProjetoDto.from(projeto);
     }

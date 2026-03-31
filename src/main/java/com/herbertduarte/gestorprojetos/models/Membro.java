@@ -14,7 +14,8 @@ import java.util.List;
 @Entity
 public class Membro {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "membro_seq")
+    @SequenceGenerator(name = "membro_seq", sequenceName = "membro_seq", allocationSize = 1)
     private Integer id;
     @Column(nullable = false)
     private Atribuicao atribuicao;

@@ -1,8 +1,8 @@
 package com.herbertduarte.gestorprojetos.enums;
 
 public enum Atribuicao {
-    FUNCIONARIO(1),
-    OUTRO(2);
+    FUNCIONARIO(0),
+    OUTRO(1);
 
     private final Integer value;
     Atribuicao(Integer value) {

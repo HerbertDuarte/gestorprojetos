@@ -1,4 +1,4 @@
-package com.herbertduarte.gestorprojetos.exceptions;
+package com.herbertduarte.gestorprojetos.exceptions.globals;
 
 import java.time.LocalDateTime;
 

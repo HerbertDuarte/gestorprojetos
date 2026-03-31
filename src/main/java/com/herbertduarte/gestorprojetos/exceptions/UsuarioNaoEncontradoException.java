@@ -1,5 +1,6 @@
 package com.herbertduarte.gestorprojetos.exceptions;
 
+import com.herbertduarte.gestorprojetos.exceptions.globals.ApplicationException;
 import org.springframework.http.HttpStatus;
 
 public class UsuarioNaoEncontradoException extends ApplicationException {

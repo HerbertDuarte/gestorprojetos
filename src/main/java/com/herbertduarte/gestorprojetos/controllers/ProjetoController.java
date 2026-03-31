@@ -25,8 +25,7 @@ public class ProjetoController {
 
     @GetMapping()
     public ResponseEntity<Page<ProjetoDto>> getAllProjetos(
-            @PageableDefault(sort = "nome") // default size = 10, page = 0
-            Pageable pageable){
+            @PageableDefault(sort = "nome") Pageable pageable){
         Page<ProjetoDto> projetos = projetoService.getAllProjetos(pageable);
         return ResponseEntity.ok(projetos);
     }

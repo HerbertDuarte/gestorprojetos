@@ -1,0 +1,69 @@
+package com.herbertduarte.gestorprojetos.validators;
+
+import com.herbertduarte.gestorprojetos.enums.Atribuicao;
+import com.herbertduarte.gestorprojetos.enums.Status;
+import com.herbertduarte.gestorprojetos.exceptions.*;
+import com.herbertduarte.gestorprojetos.models.Membro;
+import com.herbertduarte.gestorprojetos.models.Projeto;
+import com.herbertduarte.gestorprojetos.models.ProjetoMembro;
+import com.herbertduarte.gestorprojetos.repositories.ProjetoMembroRepository;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+
+@Component
+public class ProjetoMembroValidator {
+
+    private final ProjetoMembroRepository projetoMembroRepository;
+
+    public ProjetoMembroValidator(ProjetoMembroRepository projetoMembroRepository) {
+        this.projetoMembroRepository = projetoMembroRepository;
+    }
+
+    /**
+     * Valida se o membro possui atribuição de "funcionário"
+     */
+    public void validarAtribuicaoMembro(Membro membro) {
+        if (!Atribuicao.FUNCIONARIO.equals(membro.getAtribuicao())) {
+            throw new AtribuicaoInvalidaParaIngressarEmProjetoException();
+        }
+    }
+
+    /**
+     * Valida se o membro não está alocado em mais de 3 projetos simultaneamente
+     * com status diferente de encerrado ou cancelado
+     */
+    public void validarAlocacaoSimultanea(Membro membro) {
+        List<Status> statusExcluidos = List.of(Status.ENCERRADO, Status.CANCELADO);
+        int qtdProjetosAtivos = projetoMembroRepository.countByMembroIdAndProjetoStatusNotIn(membro.getId(), statusExcluidos);
+
+        if (qtdProjetosAtivos >= 3) {
+            throw new LimiteProjetosPorMembroException();
+        }
+    }
+
+    /**
+     * Valida se o projeto permite alocação (mínimo 1 e máximo 10 membros)
+     */
+    public void validarCapacidadeProjeto(Projeto projeto) {
+        int qtdMembrosProjeto = projetoMembroRepository
+                .countByProjetoId(projeto.getId());
+
+        if (qtdMembrosProjeto >= 10) {
+            throw new LimiteMembrosPorProjetoException();
+        }
+    }
+
+    /**
+     * Valida se o membro já não está alocado no projeto
+     */
+    public void validarAlocacaoDuplicada(Integer projetoId, Integer membroId) {
+        boolean membroJaAlocado = projetoMembroRepository
+                .findByProjetoIdAndMembroId(projetoId, membroId)
+                .isPresent();
+
+        if (membroJaAlocado) {
+            throw new MembroJaEstaAlocadoNoProjetoException();
+        }
+    }
+}

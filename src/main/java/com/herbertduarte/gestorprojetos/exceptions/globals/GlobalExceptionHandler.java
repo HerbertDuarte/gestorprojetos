@@ -1,4 +1,4 @@
-package com.herbertduarte.gestorprojetos.exceptions;
+package com.herbertduarte.gestorprojetos.exceptions.globals;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,6 +38,7 @@ public class GlobalExceptionHandler {
                 "Erro interno de servidor",
                 LocalDateTime.now()
         );
+        ex.printStackTrace(System.err);
         return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
