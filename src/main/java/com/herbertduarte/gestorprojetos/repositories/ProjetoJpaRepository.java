@@ -18,7 +18,9 @@ public interface ProjetoJpaRepository extends JpaRepository<Projeto, Integer> {
     @Query("SELECT p.status, SUM(p.orcamentoTotal) FROM Projeto p GROUP BY p.status")
     List<Object[]> sumOrcamentoPorStatus();
 
-    @Query("SELECT AVG(FUNCTION('DATEDIFF', DAY, p.dataInicio, p.dataTermino)) FROM Projeto p WHERE p.status = :status AND p.dataTermino IS NOT NULL")
+    @Query(value = "SELECT AVG(data_termino - data_inicio) " +
+            "FROM projeto p WHERE p.status = :status AND p.data_termino IS NOT NULL",
+            nativeQuery = true)
     Double calcularMediaDuracaoProjetosEncerrados(Status status);
 
     @Query("SELECT COUNT(DISTINCT pm.membro.id) FROM ProjetoMembro pm")
