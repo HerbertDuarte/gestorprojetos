@@ -1,0 +1,36 @@
+name: Deploy Imagem Docker Hub
+
+on:
+    push:
+        branches: [main]
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            - name: Setup Java
+              uses: actions/setup-java@v3
+              with:
+                distribution: 'temurin'
+                java-version: '17'
+            - name: Build project
+              run: mvn clean install -DskipTests
+            - name: Login Docker Hub
+              run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
+            - name: Build docker image
+              run: docker build -t herbertduarte/gestorprojetos .
+            - name: Push image docker
+              run: docker push herbertduarte/gestorprojetos
+              
+    deploy:
+        needs: build
+        runs-on: self-hosted
+        steps:
+            - name: Pull image from docker hub
+              run: docker pull herbertduarte/gestorprojetos:latest
+            - name: Remove docker container
+              run: docker rm -f gestorprojetos
+            - name: Run docker container
+              run: docker run -d -p 80:8080 -e DB_USERNAME=${{secrets.DB_USERNAME}} -e DB_PASSWORD='${{secrets.DB_PASSWORD}}' -e DB_URL=${{secrets.DB_URL}} -e SECRET=${{secrets.SECRET}} -e API_PROD_URL=${{secrets.API_PROD_URL}} --name gestorprojetos herbertduarte/gestorprojetos
