@@ -13,5 +13,5 @@
 
 [x] documentation with swagger
 [ ] tests
-[ ] prod profile config
-[ ] docker
+[x] prod profile config
+[x] docker
