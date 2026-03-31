@@ -22,8 +22,8 @@ public interface ProjetoMembroRepository extends JpaRepository<ProjetoMembro, Pr
     List<Projeto> findProjetosByMembroId(Integer membroId);
 
     Optional<ProjetoMembro> findByProjetoIdAndMembroId(Integer projetoId, Integer membroId);
-    int countByProjetoId(Integer projetoId);
+    Long countByProjetoId(Integer projetoId);
 
     @Query("SELECT COUNT(pm) FROM ProjetoMembro pm WHERE pm.membro.id = :membroId AND pm.projeto.status NOT IN :statusExcluidos")
-    int countByMembroIdAndProjetoStatusNotIn(@Param("membroId") Integer membroId, @Param("statusExcluidos") List<Status> statusExcluidos);
+    Long countByMembroIdAndProjetoStatusNotIn(@Param("membroId") Integer membroId, @Param("statusExcluidos") List<Status> statusExcluidos);
 }

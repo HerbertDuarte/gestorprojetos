@@ -30,6 +30,12 @@ public class SecurityConfiguration {
     @Value("${api.security.secret}")
     private String secret;
 
+    private final CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
+
+    public SecurityConfiguration(CustomAuthenticationEntryPoint customAuthenticationEntryPoint) {
+        this.customAuthenticationEntryPoint = customAuthenticationEntryPoint;
+    }
+
     @Bean
     public SecurityFilterChain securityFilterChain (HttpSecurity httpSecurity) throws Exception{
         return httpSecurity
@@ -42,7 +48,8 @@ public class SecurityConfiguration {
                         .anyRequest().authenticated()
                 )
                 .oauth2ResourceServer(
-                        conf -> conf.jwt(Customizer.withDefaults()))
+                        conf -> conf.jwt(Customizer.withDefaults())
+                                .authenticationEntryPoint(customAuthenticationEntryPoint))
                 .build();
 
     }

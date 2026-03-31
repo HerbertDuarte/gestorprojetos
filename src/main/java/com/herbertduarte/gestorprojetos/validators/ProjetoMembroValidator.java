@@ -19,33 +19,26 @@ public class ProjetoMembroValidator {
         this.projetoMembroRepository = projetoMembroRepository;
     }
 
-    /**
-     * Valida se o membro possui atribuição de "funcionário"
-     */
+
     public void validarAtribuicaoMembro(Membro membro) {
         if (!Atribuicao.FUNCIONARIO.equals(membro.getAtribuicao())) {
             throw new AtribuicaoInvalidaParaIngressarEmProjetoException();
         }
     }
 
-    /**
-     * Valida se o membro não está alocado em mais de 3 projetos simultaneamente
-     * com status diferente de encerrado ou cancelado
-     */
+
     public void validarAlocacaoSimultanea(Membro membro) {
         List<Status> statusExcluidos = List.of(Status.ENCERRADO, Status.CANCELADO);
-        int qtdProjetosAtivos = projetoMembroRepository.countByMembroIdAndProjetoStatusNotIn(membro.getId(), statusExcluidos);
+        Long qtdProjetosAtivos = projetoMembroRepository.countByMembroIdAndProjetoStatusNotIn(membro.getId(), statusExcluidos);
 
         if (qtdProjetosAtivos >= 3) {
             throw new LimiteProjetosPorMembroException();
         }
     }
 
-    /**
-     * Valida se o projeto permite alocação (mínimo 1 e máximo 10 membros)
-     */
+
     public void validarCapacidadeProjeto(Projeto projeto) {
-        int qtdMembrosProjeto = projetoMembroRepository
+        Long qtdMembrosProjeto = projetoMembroRepository
                 .countByProjetoId(projeto.getId());
 
         if (qtdMembrosProjeto >= 10) {
@@ -53,9 +46,7 @@ public class ProjetoMembroValidator {
         }
     }
 
-    /**
-     * Valida se o membro já não está alocado no projeto
-     */
+
     public void validarAlocacaoDuplicada(Integer projetoId, Integer membroId) {
         boolean membroJaAlocado = projetoMembroRepository
                 .findByProjetoIdAndMembroId(projetoId, membroId)

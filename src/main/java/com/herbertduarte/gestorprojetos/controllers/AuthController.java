@@ -41,7 +41,8 @@ public class AuthController {
                             schema = @Schema(implementation = ErrorResponseDto.class),
                             examples = @ExampleObject(value = AcessoNegadoException.example)
                     )
-            )
+            ),
+            @ApiResponse(responseCode = "500", description = "Erro interno do servidor")
     })
     public ResponseEntity<LoginResponseDto> login(@RequestBody @Valid LoginDto payload){
         var userNamePassword = new UsernamePasswordAuthenticationToken(payload.username(), payload.password());
