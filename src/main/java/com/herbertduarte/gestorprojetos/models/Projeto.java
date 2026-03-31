@@ -1,7 +1,6 @@
 package com.herbertduarte.gestorprojetos.models;
 
 import com.herbertduarte.gestorprojetos.enums.Status;
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -15,7 +15,6 @@ import com.herbertduarte.gestorprojetos.repositories.ProjetoJpaRepository;
 import com.herbertduarte.gestorprojetos.repositories.ProjetoMembroRepository;
 import com.herbertduarte.gestorprojetos.validators.ProjetoMembroValidator;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
