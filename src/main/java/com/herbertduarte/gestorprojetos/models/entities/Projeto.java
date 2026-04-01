@@ -6,7 +6,6 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @Setter
@@ -32,8 +31,6 @@ public class Projeto {
     @ManyToOne
     @JoinColumn(name = "gerente_id")
     private Membro gerente;
-    @OneToMany(mappedBy = "projeto")
-    private List<ProjetoMembro> projetoMembros;
     @Column(nullable = false)
     private Status status;
 }
